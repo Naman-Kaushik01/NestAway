@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-
+const Listing = require("./models/listing.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/NestAway"
 
@@ -16,6 +16,20 @@ async function main() {
 
 app.get("/", (req,res)=>{
     res.send("Hii , I am root");
+});
+
+app.get("/testListing",async (req,res)=>{
+    let sampleListing = new Listing({
+        title : "Your palace",
+        description : "By the Beach",
+        price : 10000,
+        location : "Marine Drive , Mumbai",
+        country : "India"
+    });
+
+    await sampleListing.save();
+    console.log("sample was saved");
+    res.send("successfullt testing");
 });
 app.listen(8080 ,()=>{
     console.log("server is listening to port 8080");
