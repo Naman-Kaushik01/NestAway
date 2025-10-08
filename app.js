@@ -28,12 +28,32 @@ app.get("/listings",async(req , res)=>{
     res.render("listings/index.ejs" ,{allListings});
 });
 
+//New Route
+
+app.get("/listings/new" ,(req , res)=>{
+    res.render("listings/new.ejs");
+});
+
 //Show Route
 app.get("/listings/:id" ,async (req , res)=>{
     let{id} = req.params;
     const listing  = await Listing.findById(id);
     res.render("listings/show.ejs",{listing});
+});
+
+//Create Route
+
+app.post("/listings" , async(req , res)=>{
+    // way 1
+    // let {title , description ,image , price , country , location} = req.body;
+    //to minimize the syntax we created object and key in new.ejs
+
+    let listing = req.body.listing;
+    const newListing = new Listing(listing); //created an instance
+    await newListing.save();
+    res.redirect("/listings");
 })
+
 
 // app.get("/testListing",async (req,res)=>{
 //     let sampleListing = new Listing({
