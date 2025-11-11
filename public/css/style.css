@@ -7,10 +7,17 @@ body{
 .container{
     flex:1;
 }
+/* New Page */
 .add-btn{
     background-color: #2e13ca !important;
     border: none !important;
 }
+/* Edit Page*/
+.edit-btn{
+    background-color: #2e13ca !important;
+    border: none !important;
+}
+
 
 /* Navbar */
 .navbar{
