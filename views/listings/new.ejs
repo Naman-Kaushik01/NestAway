@@ -6,11 +6,11 @@
             <div class="col-8 offset-2">
                 <h3>Create a New Listing</h3>
                 <br>
-                <form action="/listings" method="POST">
+                <form action="/listings" method="POST" novalidate class="needs-validation">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input name="listing[title]" placeholder="Add an Attention-Grabbing Title " type="text"
-                            class="form-control" />
+                            class="form-control" required />
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
@@ -24,16 +24,16 @@
                     <div class="row">
                         <div class="mb-3 col-md-4">
                             <label for="price" class="form-label">Price</label>
-                            <input name="listing[price]" placeholder="1799" type="number" class="form-control">
+                            <input name="listing[price]" placeholder="1799" type="number" class="form-control" required>
                         </div>
                         <div class="mb-3 col-md-8">
                             <label for="country" class="form-label">Country</label>
-                            <input name="listing[country]" placeholder="India" type="text" class="form-control">
+                            <input name="listing[country]" placeholder="India" type="text" class="form-control"required>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="location" class="form-label">Location</label>
-                        <input name="listing[location]" placeholder="Manali , Shimla " type="text" class="form-control">
+                        <input name="listing[location]" placeholder="Manali , Shimla " type="text" class="form-control"required>
                     </div>
 
                     <button class="btn btn-dark add-btn mt-3">Add</button>
